@@ -61,3 +61,11 @@ style "chrome-hacks"
 
 class "ChromeGtkFrame" style "chrome-hacks"
 widget_class "*Chrom*Button*" style "chromium_toolbar_button"
+# Eclipse/SWT
+style "swt_flat_toolbar_workaround" {
+    engine "clearlooks" {
+        toolbarstyle = 0
+    }
+}
+widget "gtk-tooltips*"          style "tooltips"
+widget "*swt-toolbar-flat"      style "swt_flat_toolbar_workaround"
