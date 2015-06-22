@@ -60,7 +60,7 @@ style "chrome-hacks"
 }
 
 class "ChromeGtkFrame" style "chrome-hacks"
-widget_class "*Chrom*Button*" style "chromium_toolbar_button"
+widget_class "*Chrom*Button*" style : highest "chromium_toolbar_button"
 
 ##########################################################################
 # Eclipse/SWT
@@ -73,7 +73,7 @@ style "swt_flat_toolbar_workaround" {
 }
 
 # See org.eclipse.swt.widgets.Display
-widget "gtk-tooltips*"          style "tooltips"
+widget "gtk-tooltips*"          style : highest "tooltips"
 
 # See org.eclipse.swt.widgets.ToolBar
-widget "*swt-toolbar-flat"      style "swt_flat_toolbar_workaround"
+widget "*swt-toolbar-flat"      style : highest "swt_flat_toolbar_workaround"
