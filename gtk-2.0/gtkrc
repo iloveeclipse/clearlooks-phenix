@@ -2,7 +2,6 @@
 
 # show menu images (if any)
 gtk-menu-images = 1
-
 # gtk-alternative-button-order = 1
 # gtk-theme-name = "Clearlooks-Phenix"
 # gtk-cursor-theme-name = "KDE Classic"
@@ -36,7 +35,7 @@ style "default" {
 	GtkScrollbar::min-slider-length = 30
 	GtkMenuBar::internal-padding = 0
 	GtkExpander::expander-size = 16
-	GtkToolbar::internal-padding = 1
+	GtkToolbar::internal-padding = 0
 	GtkTreeView::expander-size = 14
 	GtkTreeView::vertical-separator = 0
 
@@ -176,8 +175,8 @@ style "notebook_bg" {
 }
 
 style "button" {
-	xthickness = 3
-	ythickness = 3
+	xthickness = 1
+	ythickness = 1
 
 	bg[NORMAL]        = shade (1.04, @bg_color)
 	bg[PRELIGHT]      = shade (1.06, @bg_color)
