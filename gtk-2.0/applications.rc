@@ -64,9 +64,22 @@ widget_class "*Chrom*Button*" style "chromium_toolbar_button"
 # Eclipse/SWT
 style "swt_flat_toolbar_workaround" {
 
+##########################################################################
+# Eclipse/SWT
+##########################################################################
+style "swt_flat_toolbar_workaround" {
+
+    engine "clearlooks" {
+        toolbarstyle = 0
+    }
+}
+
+# See org.eclipse.swt.widgets.Display
+widget "gtk-tooltips*"          style "tooltips"
     engine "clearlooks" {
         toolbarstyle = 0
     }
 }
 widget "gtk-tooltips*"          style "tooltips"
+widget "*swt-toolbar-flat"      style "swt_flat_toolbar_workaround"# See org.eclipse.swt.widgets.ToolBar
 widget "*swt-toolbar-flat"      style "swt_flat_toolbar_workaround"
