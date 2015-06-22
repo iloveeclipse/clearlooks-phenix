@@ -339,20 +339,20 @@ style "evo_new_button_workaround" {
 ###############################################################################
 
 # The default style is applied to every widget
-class "GtkWidget" style "default"
+class "GtkWidget" style : highest "default"
 
-class "GtkSeparator" style "wide"
-class "GtkFrame" style "wide"
-class "GtkCalendar" style "wide"
-class "GtkEntry" style "entry"
+class "GtkSeparator" style : highest "wide"
+class "GtkFrame" style : highest "wide"
+class "GtkCalendar" style : highest "wide"
+class "GtkEntry" style : highest "entry"
 
-class "GtkSpinButton" style "spinbutton"
-class "GtkScale" style "scale"
-class "GtkVScale" style "vscale"
-class "GtkHScale" style "hscale"
-class "GtkScrollbar" style "scrollbar"
-class "GtkHScrollbar" style "hscrollbar"
-class "GtkVScrollbar" style "vscrollbar"
+class "GtkSpinButton" style : highest "spinbutton"
+class "GtkScale" style : highest "scale"
+class "GtkVScale" style : highest "vscale"
+class "GtkHScale" style : highest "hscale"
+class "GtkScrollbar" style : highest "scrollbar"
+class "GtkHScrollbar" style : highest "hscrollbar"
+class "GtkVScrollbar" style : highest "vscrollbar"
 
 # General matching follows. The order is choosen so that the right styles override
 # each other. EG. progressbar needs to be more important than the menu match.
@@ -360,34 +360,34 @@ widget_class "*<GtkNotebook>" style "notebook_bg"
 # This is not perfect, it could be done better.
 # (That is modify *every* widget in the notebook, and change those back that
 # we really don't want changed)
-widget_class "*<GtkNotebook>*<GtkEventBox>" style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkDrawingArea>" style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkLayout>" style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkViewport>" style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkScrolledWindow>" style "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkEventBox>" style : highest "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkDrawingArea>" style : highest "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkLayout>" style : highest "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkViewport>" style : highest "notebook_bg"
+widget_class "*<GtkNotebook>*<GtkScrolledWindow>" style : highest "notebook_bg"
 
-widget_class "*<GtkButton>" style "button"
-widget_class "*<GtkNotebook>" style "notebook"
-widget_class "*<GtkStatusbar>*" style "statusbar"
+widget_class "*<GtkButton>" style : highest "button"
+widget_class "*<GtkNotebook>" style : highest "notebook"
+widget_class "*<GtkStatusbar>*" style : highest "statusbar"
 
-widget_class "*<GtkComboBoxEntry>*" style "comboboxentry"
-widget_class "*<GtkCombo>*" style "comboboxentry"
+widget_class "*<GtkComboBoxEntry>*" style : highest "comboboxentry"
+widget_class "*<GtkCombo>*" style : highest "comboboxentry"
 
-widget_class "*<GtkMenuBar>*" style "menubar"
-widget_class "*<GtkMenu>*" style "menu"
-widget_class "*<GtkMenuItem>*" style "menu_item"
-widget_class "*<GtkSeparatorMenuItem>*" style "separator_menu_item"
+widget_class "*<GtkMenuBar>*" style : highest "menubar"
+widget_class "*<GtkMenu>*" style : highest "menu"
+widget_class "*<GtkMenuItem>*" style : highest "menu_item"
+widget_class "*<GtkSeparatorMenuItem>*" style : highest "separator_menu_item"
 
-widget_class "*.<GtkFrame>.<GtkLabel>" style "frame_title"
-widget_class "*.<GtkTreeView>*" style "treeview"
+widget_class "*.<GtkFrame>.<GtkLabel>" style : highest "frame_title"
+widget_class "*.<GtkTreeView>*" style : highest "treeview"
 
-widget_class "*<GtkProgress>" style "progressbar"
+widget_class "*<GtkProgress>" style : highest "progressbar"
 
 # Treeview headers (and similar stock GTK+ widgets)
-widget_class "*.<GtkTreeView>.<GtkButton>" style "treeview_header"
-widget_class "*.<GtkCTree>.<GtkButton>" style "treeview_header"
-widget_class "*.<GtkList>.<GtkButton>" style "treeview_header"
-widget_class "*.<GtkCList>.<GtkButton>" style "treeview_header"
+widget_class "*.<GtkTreeView>.<GtkButton>" style : highest "treeview_header"
+widget_class "*.<GtkCTree>.<GtkButton>" style : highest "treeview_header"
+widget_class "*.<GtkList>.<GtkButton>" style : highest "treeview_header"
+widget_class "*.<GtkCList>.<GtkButton>" style : highest "treeview_header"
 
 # The window of the tooltip is called "gtk-tooltip"
 ##################################################################
@@ -397,7 +397,7 @@ widget_class "*.<GtkCList>.<GtkButton>" style "treeview_header"
 # quite a bit to get this working correctly.
 # (It will involve setting different priorities, etc.)
 ##################################################################
-widget "gtk-tooltip*" style "tooltips"
+widget "gtk-tooltip*" style : highest "tooltips"
 
 ##########################################################################
 # Following are special cases and workarounds for issues in applications.
