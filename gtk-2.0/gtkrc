@@ -4,7 +4,11 @@
 # show menu images (if any)
 gtk-menu-images = 1
 
-gtk-color-scheme = "base_color:#ffffff\nfg_color:#000000\ntooltip_fg_color:#000000\nselected_bg_color:#86abd9\nselected_fg_color:#ffffff\ntext_color:#1a1a1a\nbg_color:#edeceb\ntooltip_bg_color:#f5f5b5\nlink_color:#0000ee\nvisited_link_color:#551a8b"
+# gtk-alternative-button-order = 1
+# gtk-theme-name = "Clearlooks-Phenix"
+# gtk-cursor-theme-name = "KDE Classic"
+
+gtk-color-scheme = "base_color: #ffffff;fg_color: #000000;tooltip_fg_color: #000000;selected_bg_color: #86abd9;selected_fg_color: #ffffff;text_color: #1a1a1a;bg_color: #edeceb;tooltip_bg_color: #f5f5b5;link_color: #0000ee;visited_link_color: #551a8b"
 
 style "default" {
 	xthickness = 1
