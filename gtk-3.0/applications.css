@@ -156,3 +156,18 @@ UnityPanelWidget,
 	                  color-stop (0.50, @menubar_menuitem_hover_gradient_c),
 	                  to (@menubar_menuitem_hover_gradient_d));
 }
+
+/**************
+* Eclipse/SWT *
+***************/
+
+/* See org.eclipse.swt.widgets.Display, this is a copy of .tooltip definitoion */
+.gtk-tooltip {
+	padding: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: @theme_tooltip_border_color;
+	border-radius: 0px;
+	background-color: @theme_tooltip_bg_color;
+	color: @theme_tooltip_fg_color;
+}
