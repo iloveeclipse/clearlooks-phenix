@@ -1377,7 +1377,12 @@ GtkCheckButton:selected:focus {
 .toolbar {
 	border-style: none;
 	border-color: darker (@theme_bg_color);
-	padding: 4px;
+	
+	padding: 1px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 
 .toolbar .button {
@@ -1448,7 +1453,7 @@ GtkCheckButton:selected:focus {
 	border-radius: 0;
 	border-style: solid;
 	-GtkToolbar-button-relief: normal;
-	padding: 4px;
+	padding: 1px;
 }
 
 .inline-toolbar.toolbar:last-child {
@@ -1556,6 +1561,25 @@ GtkSwitch.slider {
 GtkSwitch.slider:insensitive {
 	background-color: @switch_slider_insensitive_bg_color;
 	border-color: @insensitive_border_color;
+}
+
+GtkToolbar {
+	/* 
+	 see /org.eclipse.swt/Eclipse SWT PI/gtk/org/eclipse/swt/internal/gtk/swtgtk_pre320.css 
+	 and 
+	 /org.eclipse.swt/Eclipse SWT/gtk/org/eclipse/swt/graphics/Device.java
+	*/
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+GtkToolbar GtkButton {
+	/* 
+	 see /org.eclipse.swt/Eclipse SWT PI/gtk/org/eclipse/swt/internal/gtk/swtgtk_pre320.css 
+	 and 
+	 /org.eclipse.swt/Eclipse SWT/gtk/org/eclipse/swt/graphics/Device.java
+	*/
+	padding: 2px 4px 2px 4px;
 }
 
 GtkTreeView {
