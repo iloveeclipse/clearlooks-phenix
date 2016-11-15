@@ -937,6 +937,12 @@ GtkColorChooserWidget #add-color-button:hover {
 	              alpha(black, 0.13);
 }
 
+/* temporary fix for tab hight */
+GtkNotebook GtkBox GtkLabel {
+    padding-bottom: 4;
+    padding-top: 2;
+}
+
 /**************
  * ComboBoxes *
  **************/
