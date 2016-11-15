@@ -661,6 +661,14 @@ GtkColorChooserWidget #add-color-button {
 	background-color: transparent;
 }
 
+/* Flat pushed button should have a border */
+.button:checked.flat {
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: shade(@border_color, 0.90);
+    border-style: solid;
+}
+
 GtkListBoxRow.button.list-row:hover {
 	background-image: linear-gradient(to bottom,
 	                  shade(@button_active_gradient_a, 1.20),
