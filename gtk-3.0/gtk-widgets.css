@@ -318,6 +318,11 @@ GtkProgressBar {
 }
 
 /* progress component */
+.level-bar,
+.level-bar row,
+.level-bar row:hover,
+.level-bar row:selected,
+.level-bar row:selected:focus,
 .progressbar,
 .progressbar row,
 .progressbar row:hover,
@@ -340,11 +345,14 @@ GtkProgressBar {
 	border-color: @progressbar_border_color;
 }
 
+.level-bar row:selected,
+.level-bar row:selected:focus,
 .progressbar row:selected,
 .progressbar row:selected:focus {
 	border-color: shade(@progressbar_border_color, 0.85);
 }
 
+.level-bar.vertical,
 .progressbar.vertical {
 	background-image: linear-gradient(to right,
 	                      alpha (@progressbar_gradient_a, 0.7),
