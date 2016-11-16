@@ -478,7 +478,7 @@ GtkScrolledWindow GtkViewport.frame {
 .toolbar.horizontal .button:active,
 .titlebar .linked.raised .button,
 .titlebar .linked.raised .button:active {
-	padding: 5px 8px 6px;
+	padding: 2px 4px 2px 4px;
 }
 
 GtkComboBox GtkToggleButton.button,
