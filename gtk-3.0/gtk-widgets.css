@@ -534,6 +534,7 @@ GtkComboBoxText GtkToggleButton.button,
 	color: @theme_text_color;
 	border-style: solid;
 	border-color: transparent;
+	padding: 3px 4px 3px 4px;
 }
 
 /* We want anything inside the buttons to use their background */
