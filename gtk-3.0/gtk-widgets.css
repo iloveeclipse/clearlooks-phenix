@@ -23,7 +23,7 @@
 
 	-gtk-outline-radius: 2px;
 	-gtk-icon-style: regular; /* disable symbolic icons */
-	
+
 	-GtkWindow-resize-grip-width: 11;
 	-GtkWindow-resize-grip-height: 11;
 }
@@ -1197,9 +1197,9 @@ combobox > .linked > button.combo:hover:last-child,
 combobox > .linked > button.combo:checked:last-child,
 combobox > .linked > button.combo:focus:hover:last-child,
 combobox > .linked > button.combo:disabled:last-child {
-	border-image-width: 3px 3px 4px 0;
-	border-radius: 0 3px 3px 0;
-	border-width: 0 1;
+	border-image-width: 3px 3px 4px 0px;
+	border-radius: 0px 3px 3px 0px;
+	border-width: 0px 1px;
 }
 combobox > .linked > entry.combo:only-child,
 combobox > .linked > button.combo:only-child,
@@ -2046,9 +2046,9 @@ treeview {
 
 view,
 view:selected,
-view:selected:focus, 
+view:selected:focus,
 .view:selected,
-.view:selected:focus, 
+.view:selected:focus,
 view text selection,
 .view text selection,
 view text selection:focus,
