@@ -1,0 +1,49 @@
+/*
+ * Patches for GTK3 and Eclipse 4.7.
+ *
+ * This file is added directly after the application specific css of Eclipse.
+ * Here we override settings used by Eclipse which we don't want.
+ *
+ * This file is passed as a VM argument to Eclipse, with
+ * -Dorg.eclipse.swt.internal.gtk.cssFile=/usr/share/themes/Clearlooks-Phenix/gtk-3.0/eclipse-patches/application-patches.css
+ */
+
+
+
+/*
+ * Eclipse css sets the minimum height of text fields to 26px,
+ * to make the Adwaita theme less spacious in Eclipse.
+ *
+ * We overwrite this here.
+ *
+ * See org.eclipse.swt/Eclipse SWT PI/gtk/org/eclipse/swt/internal/gtk/swtgtk_320.css
+ *
+ * See JEP-665.
+ */
+entry {
+    min-height: 12px;
+}
+
+/*
+ * Ensure toolbars, and also by extension part stack tabs, have some minimal height.
+ *
+ * See JEP-401, JEP-678.
+ */
+toolbar {
+    min-height: 23px;
+}
+
+/*
+ * Give some padding to toolbars and toolbar buttons,
+ * so that toolbar buttons don't appear cramped by their borders.
+ * 
+ * See JEP-401.
+ */
+toolbar {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+toolbar toolbutton button {
+	padding: 1px;
+}

@@ -1,0 +1,264 @@
+/*
+ * Eclipse related patches for the theme.
+ *
+ * Everything that we can patch from the theme should be patched here,
+ * instead of at the application level. This way we also ensure the look-and-feel
+ * of Eclipse applications which are not instructed to use "application-patches.css".
+ */
+
+/*
+ * Eclipse css sets the padding of toolbar buttons to 0, resulting in a cramped toolbar.
+ * We prevent this with a min-width.
+ *
+ * See org.eclipse.swt/Eclipse SWT PI/gtk/org/eclipse/swt/internal/gtk/swtgtk_320.css
+ */
+toolbar toolbutton button {
+    min-width: 20px;
+}
+
+/*
+ * Prevent progress bars from clipping their progress bar area,
+ * since a wrong size hint is computed during the call:
+ *
+ * org.eclipse.jface.dialogs.ProgressMonitorDialog.createDialogArea(Composite)
+ *
+ * The hint is too small for the Clearlooks-Phenix theme for GTK 3.22,
+ * which sets minimum height for progress bars to 9px.
+ *
+ * See JEP-668.
+ */
+
+progressbar.horizontal trough,
+progressbar.horizontal progress {
+	min-height: 9px;
+}
+
+progressbar.horizontal progress,
+row progressbar progress,
+row:hover progressbar progress,
+row:selected progressbar progress,
+row:selected:focus progressbar progress {
+	min-height: 9px;
+}
+
+/**
+ * Remove extra padding added to cells in tables.
+ *
+ * See JEP-552 and JEP-504.
+ */
+.cell {
+	padding: 1px;
+}
+
+/*
+ * Add extra spacing around radio buttons and check boxes.
+ *
+ * See JEP-665.
+ */
+
+check, radio {
+  margin: 0 2px;
+}
+
+/*
+ * Border of tab folders overlap with borders of entities in the tabs.
+ *
+ * See JEP-665.
+ */
+
+notebook.frame {
+    border: none;
+}
+
+/*
+ * Without the border of the tab folder (removed above),
+ * the left-most tab does not have a left border due to a negative left margin.
+ *
+ * We set the margin to 0 to prevent this.
+ */
+notebook header.top tab {
+	margin-left: 0;
+}
+
+notebook viewport {
+	background-color: @theme_bg_color;
+}
+
+notebook tab {
+	border-color: @border_color;
+	background-color: transparent;
+}
+
+notebook tab * {
+	background-color: transparent;
+}
+
+/*
+ * Border of groups overlap with borders of entities in the group.
+ *
+ * See JEP-665.
+ */
+
+scrolledwindow frame {
+	border: none;
+}
+
+/*
+ * Fix for tab height.
+ *
+ * See JEP-665.
+ */
+notebook box label {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+
+/*
+ * Inline color definitions for tooltip background and foreground colors,
+ * since SWT is not able to parse the referenced colors definitions from "gtk.css".
+ *
+ * See JEP-662.
+ */
+tooltip,
+tooltip.background,
+.tooltip,
+.tooltip.background {
+	background-color: #fcfcfc;
+	color: #000000;
+}
+
+/*
+ * Reduce padding in spin buttons, so that they aren't huge.
+ *
+ * See JEP-677.
+ */
+spinbutton button {
+    padding: 2px 5px;
+}
+
+
+/*
+ * Reduce padding between menu items, so that menus don't take so much space.
+ *
+ * See JEP-674.
+ */
+menu menuitem,
+.menu menuitem {
+	padding: 3px 4px;
+}
+
+/*
+ * Put the outline further inside widgets, to avoid selected buttons
+ * which look cut off at the bottom.
+ *
+ * In GTK 3.22, the offset-outline for the bottom side is one pixel lower
+ * than it should be.
+ *
+ * With 2px offset, it coincides with the bottom border of e.g. selected buttons,
+ * making the other parts of the border thicker in comparison.
+ *
+ * See JEP-670.
+ */
+* {
+	outline-offset: -3px;
+}
+
+/*
+ * Reduce the size of combo boxes.
+ *
+ * See JEP-675.
+ */
+combobox entry.combo,
+combobox button.combo {
+	padding: 4px;
+}
+
+/*
+ * Prevent borders from being drawn for labels.
+ *
+ * See JEP-679.
+ */
+entry.flat {
+    border: none;
+}
+
+/*
+ * Remove border from horizontal scrollbar, to be consistent with vertical scrollbar.
+ *
+ * See JEP-687.
+ */
+scrollbar.horizontal {
+    border-width: 0px;
+}
+
+/*
+ * We don't want focused buttons to have a different background than normally.
+ *
+ * See JEP-400.
+ */
+button:focus {
+	background-image: -gtk-gradient (linear,
+	                  left top,
+	                  left bottom,
+	                  from (@button_gradient_a),
+	                  color-stop (0.50, @button_gradient_b),
+	                  color-stop (0.50, @button_gradient_c),
+	                  to (@button_gradient_d));
+	background-color: transparent;
+}
+
+/*
+ * Don't draw a border at the junction node where scroll bars meet.
+ *
+ * See JEP-688.
+ */
+scrolledwindow junction.frame {
+	border: none;
+}
+
+
+/*
+ * Hide toolbar button selection border for focused buttons. 
+ *
+ * See CR-119015.
+ */
+/* hide border for clicked toolbar buttons */
+toolbar toolbutton button.flat:focus {
+    border-image: none;
+}
+
+/* but show the border if on hover or if toggled */
+toolbar toolbutton button.flat:hover,
+toolbar toolbutton button.flat:checked {
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+toolbar toolbutton button.flat:hover {
+	border-image: url("../img/border-focused.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
+}
+
+toolbar toolbutton button.flat:checked {
+	border-image: url("../img/border-inline-button.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
+}
+
+/*
+ * Fix button alignment and padding in file open dialogs,
+ *
+ * See JEP-123, and commit c03d0c26165a07580619605459db474dbfa64bd1. 
+ */
+button {
+	padding: 3px 4px 3px 4px;
+}
+
+/*
+ * Grey-out Eclipse toolbar icons when disabled.
+ *
+ * See CR-119055.
+ */
+*:disabled {
+	-gtk-icon-effect: dim;
+}
