@@ -262,3 +262,14 @@ button {
 *:disabled {
 	-gtk-icon-effect: dim;
 }
+
+/*
+ * Fix missing toolbar separators.
+ *
+ * See JEP-896.
+ */
+separator {
+  background: shade(@border_color, 1.30);
+  min-width: 1px;
+  min-height: 1px;
+}
