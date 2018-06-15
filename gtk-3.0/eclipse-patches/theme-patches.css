@@ -30,7 +30,7 @@ toolbar toolbutton button {
 
 progressbar.horizontal trough,
 progressbar.horizontal progress {
-	min-height: 9px;
+	min-height: 8px;
 }
 
 progressbar.horizontal progress,
