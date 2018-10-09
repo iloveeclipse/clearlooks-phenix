@@ -149,22 +149,6 @@ menu menuitem,
 }
 
 /*
- * Put the outline further inside widgets, to avoid selected buttons
- * which look cut off at the bottom.
- *
- * In GTK 3.22, the offset-outline for the bottom side is one pixel lower
- * than it should be.
- *
- * With 2px offset, it coincides with the bottom border of e.g. selected buttons,
- * making the other parts of the border thicker in comparison.
- *
- * See JEP-670.
- */
-* {
-	outline-offset: -3px;
-}
-
-/*
  * Reduce the size of combo boxes.
  *
  * See JEP-675.
@@ -219,7 +203,7 @@ scrolledwindow junction.frame {
 
 
 /*
- * Hide toolbar button selection border for focused buttons. 
+ * Hide toolbar button selection border for focused buttons.
  *
  * See CR-119015.
  */
@@ -232,7 +216,7 @@ toolbar toolbutton button.flat:focus {
 toolbar toolbutton button.flat:hover,
 toolbar toolbutton button.flat:checked {
 	border-radius: 3px;
-	border-width: 1px 1px 2px 1px;
+	border-width: 1px 1px 1px 1px;
 	border-style: solid;
 	border-color: transparent;
 }
@@ -248,7 +232,7 @@ toolbar toolbutton button.flat:checked {
 /*
  * Fix button alignment and padding in file open dialogs,
  *
- * See JEP-123, and commit c03d0c26165a07580619605459db474dbfa64bd1. 
+ * See JEP-123, and commit c03d0c26165a07580619605459db474dbfa64bd1.
  */
 button {
 	padding: 3px 4px 3px 4px;
@@ -264,6 +248,56 @@ button {
 }
 
 /*
+ * Ensure toolbars, and also by extension part stack tabs, have some minimal height.
+ *
+ * See JEP-401, JEP-678.
+ */
+toolbar {
+    min-height: 23px;
+}
+
+/*
+ * Give some padding to toolbars and toolbar buttons,
+ * so that toolbar buttons don't appear cramped by their borders.
+ *
+ * See JEP-401.
+ */
+toolbar {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+/*
+ * Unset the too-large toolbar button padding specified in the theme,
+ * since SWT sets the padding on application level only for Adwaita.
+ *
+ * See JEP-695.
+ */
+toolbar.inline-toolbar button,
+toolbar.primary-toolbar button,
+toolbar.primary-toolbar button:active,
+toolbar.horizontal button,
+toolbar.horizontal button:active,
+toolbar toolbutton button,
+.titlebar .linked.raised button,
+.titlebar .linked.raised button:active {
+	padding: 1px;
+}
+
+toolbar button,
+toolbar.primary-toolbar button,
+toolbar.horizontal button:hover,
+toolbar.horizontal button:active {
+	padding: 1px;
+}
+
+.path-bar button,
+.linked.path-bar > button,
+.path-bar button image,
+.path-bar button label {
+	padding: 0px;
+}
+/*
  * Fix missing toolbar separators.
  *
  * See JEP-896.
@@ -272,4 +306,16 @@ separator {
   background: shade(@border_color, 1.30);
   min-width: 1px;
   min-height: 1px;
+}
+
+/*
+ * Fix missing radio buttons and check boxes in Eclipse help browser (that is based on GTK+ web browser).
+ *
+ * See JEP-1031.
+ */
+check,
+radio {
+	min-width: 16px;
+	min-height: 16px;
+	margin: 0px 0px;
 }
