@@ -8,6 +8,14 @@
  * -Dorg.eclipse.swt.internal.gtk.cssFile=/usr/share/themes/Clearlooks-Phenix/gtk-3.0/eclipse-patches/application-patches.css
  */
 
+/*
+ * Since SmarTest 8.1.4 patches on application level are no longer necessary,
+ * as the hard-coded Eclipse fixes for Adwaita were removed in Eclipse bug 527729.
+ *
+ * The file and its contents are still necessary in the theme rpm, since versions before 8.1.4 still require it.
+ *
+ * See JEP-695.
+ */
 
 
 /*
@@ -36,7 +44,7 @@ toolbar {
 /*
  * Give some padding to toolbars and toolbar buttons,
  * so that toolbar buttons don't appear cramped by their borders.
- * 
+ *
  * See JEP-401.
  */
 toolbar {
