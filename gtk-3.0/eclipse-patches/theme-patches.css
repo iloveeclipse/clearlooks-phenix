@@ -319,3 +319,21 @@ radio {
 	min-height: 16px;
 	margin: 0px 0px;
 }
+
+/*
+ * Fix missing text in some tooltips in Eclipse 4.12.
+ *
+ * See https://bugs.eclipse.org/bugs/show_bug.cgi?id=545923.
+ */
+tooltip *,
+.tooltip * {
+	color: @theme_tooltip_fg_color;
+}
+
+*:link {
+	color: @link_color;
+}
+
+*:link:visited {
+	color: @visited_link_color;
+}
